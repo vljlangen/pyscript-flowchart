@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowchartWizard Web</title>
+
+    <!-- PyScript CSS & JS -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2rem;
+        }
+        textarea {
+            width: 100%;
+            font-family: monospace;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        button {
+            margin: 0.2rem;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+        }
+        #flow-output {
+            margin-top: 1.5rem;
+            border: 1px solid #ccc;
+            padding: 1rem;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>FlowchartWizard Web</h2>
+
+    <p>Enter each step of your flowchart on a separate line:</p>
+    <textarea id="flow-input" rows="8" placeholder="Start&#10;Step 1&#10;Step 2&#10;End"></textarea>
+
+    <div>
+        <button id="draw-btn">Draw Flowchart</button>
+    </div>
+
+    <h3>Output:</h3>
+    <div id="flow-output"></div>
+
+    <!-- PyScript logic -->
+    <script type="py" src="main.py"></script>
+</body>
+</html>

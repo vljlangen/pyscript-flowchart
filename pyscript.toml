@@ -1,0 +1,3 @@
+name = "FlowchartWizard"
+description = "A simple web tool to generate auto-sized flowcharts from sequential text input."
+packages = ["matplotlib", "networkx"]
