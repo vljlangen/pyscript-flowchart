@@ -6,9 +6,6 @@ import networkx as nx
 def draw_flowchart(event=None):
     # Get user input from textarea
     text = document.querySelector("#flow-input").value
-    
-    # Check if user wants to use first line as title
-    use_first_line_title = document.querySelector("#use-first-line-title").checked
 
     # Split nodes by empty lines (two consecutive newlines)
     raw_nodes = text.split("\n\n")
@@ -17,22 +14,6 @@ def draw_flowchart(event=None):
     if len(nodes) < 2:
         document.querySelector("#flow-output").innerText = "Need at least 2 steps!"
         return
-
-    # Handle title and first line removal BEFORE building graph
-    title_text = ""
-    if use_first_line_title and nodes:
-        # Use first line of first node as title
-        first_line = nodes[0].split('\n')[0]
-        title_text = first_line
-        
-        # Remove first line from first node if it's being used as title
-        if len(nodes[0].split('\n')) > 1:
-            # Keep only the remaining lines
-            remaining_lines = nodes[0].split('\n')[1:]
-            nodes[0] = '\n'.join(remaining_lines)
-        else:
-            # If first node only had one line, remove it entirely
-            nodes = nodes[1:]
 
     # Build graph sequentially
     G = nx.DiGraph()
@@ -107,12 +88,8 @@ def draw_flowchart(event=None):
             )
         )
     
-    # Set the title
-    if use_first_line_title and title_text:
-        plt.title(title_text, fontsize=10, pad=10)
-    else:
-        # Show the target width in title
-        plt.title(f"All lines padded to {max_chars} characters", fontsize=8, pad=10)
+    # Show the target width in title
+    plt.title(f"All lines padded to {max_chars} characters", fontsize=8, pad=10)
 
     ax.axis("off")
     plt.show()

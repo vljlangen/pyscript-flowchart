@@ -8,6 +8,11 @@
     <!-- PyScript CSS & JS -->
     <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
     <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    
+    <!-- PyScript Configuration -->
+    <py-config>
+        packages = ["matplotlib", "networkx"]
+    </py-config>
 
     <style>
         body {
@@ -40,6 +45,13 @@
     <p>Enter each step of your flowchart on a separate line:</p>
     <textarea id="flow-input" rows="8" placeholder="Start&#10;Step 1&#10;Step 2&#10;End"></textarea>
 
+    <div>
+        <label>
+            <input type="checkbox" id="use-first-line-title" checked>
+            Use first line as the plot title
+        </label>
+    </div>
+    
     <div>
         <button id="draw-btn">Draw Flowchart</button>
     </div>
